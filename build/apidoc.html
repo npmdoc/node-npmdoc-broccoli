@@ -1,0 +1,3173 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/broccolijs/broccoli"
+
+    >broccoli (v1.1.1)</a>
+</h1>
+<h4>Fast client-side asset builder</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli">module broccoli</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder">
+            function <span class="apidocSignatureSpan">broccoli.</span>Builder
+            <span class="apidocSignatureSpan">(outputNode, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.BuildError">
+            function <span class="apidocSignatureSpan">broccoli.</span>Builder.BuildError
+            <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.BuilderError">
+            function <span class="apidocSignatureSpan">broccoli.</span>Builder.BuilderError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.InvalidNodeError">
+            function <span class="apidocSignatureSpan">broccoli.</span>Builder.InvalidNodeError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.NodeSetupError">
+            function <span class="apidocSignatureSpan">broccoli.</span>Builder.NodeSetupError
+            <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.NodeWrapper">
+            function <span class="apidocSignatureSpan">broccoli.</span>Builder.NodeWrapper
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.SourceNodeWrapper">
+            function <span class="apidocSignatureSpan">broccoli.</span>Builder.SourceNodeWrapper
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.TransformNodeWrapper">
+            function <span class="apidocSignatureSpan">broccoli.</span>Builder.TransformNodeWrapper
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Watcher">
+            function <span class="apidocSignatureSpan">broccoli.</span>Watcher
+            <span class="apidocSignatureSpan">(builder, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.WatcherAdapter">
+            function <span class="apidocSignatureSpan">broccoli.</span>WatcherAdapter
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.cli">
+            function <span class="apidocSignatureSpan">broccoli.</span>cli
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.getMiddleware">
+            function <span class="apidocSignatureSpan">broccoli.</span>getMiddleware
+            <span class="apidocSignatureSpan">(watcher, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.loadBrocfile">
+            function <span class="apidocSignatureSpan">broccoli.</span>loadBrocfile
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">broccoli.</span>Builder.BuildError.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">broccoli.</span>Builder.BuilderError.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">broccoli.</span>Builder.InvalidNodeError.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">broccoli.</span>Builder.NodeSetupError.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">broccoli.</span>Builder.NodeWrapper.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">broccoli.</span>Builder.SourceNodeWrapper.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">broccoli.</span>Builder.TransformNodeWrapper.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">broccoli.</span>Builder.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">broccoli.</span>Watcher.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">broccoli.</span>WatcherAdapter.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">broccoli.</span>server</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder">module broccoli.Builder</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.Builder">
+            function <span class="apidocSignatureSpan">broccoli.</span>Builder
+            <span class="apidocSignatureSpan">(outputNode, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.BuildError">
+            function <span class="apidocSignatureSpan">broccoli.Builder.</span>BuildError
+            <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.BuilderError">
+            function <span class="apidocSignatureSpan">broccoli.Builder.</span>BuilderError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.InvalidNodeError">
+            function <span class="apidocSignatureSpan">broccoli.Builder.</span>InvalidNodeError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.NodeSetupError">
+            function <span class="apidocSignatureSpan">broccoli.Builder.</span>NodeSetupError
+            <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.NodeWrapper">
+            function <span class="apidocSignatureSpan">broccoli.Builder.</span>NodeWrapper
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.SourceNodeWrapper">
+            function <span class="apidocSignatureSpan">broccoli.Builder.</span>SourceNodeWrapper
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.TransformNodeWrapper">
+            function <span class="apidocSignatureSpan">broccoli.Builder.</span>TransformNodeWrapper
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.BuildError">module broccoli.Builder.BuildError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.BuildError.BuildError">
+            function <span class="apidocSignatureSpan">broccoli.Builder.</span>BuildError
+            <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.BuildError.prototype">module broccoli.Builder.BuildError.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.BuildError.prototype.constructor">
+            function <span class="apidocSignatureSpan">broccoli.Builder.BuildError.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.BuilderError">module broccoli.Builder.BuilderError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.BuilderError.BuilderError">
+            function <span class="apidocSignatureSpan">broccoli.Builder.</span>BuilderError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.BuilderError.prototype">module broccoli.Builder.BuilderError.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.BuilderError.prototype.constructor">
+            function <span class="apidocSignatureSpan">broccoli.Builder.BuilderError.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.InvalidNodeError">module broccoli.Builder.InvalidNodeError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.InvalidNodeError.InvalidNodeError">
+            function <span class="apidocSignatureSpan">broccoli.Builder.</span>InvalidNodeError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.InvalidNodeError.prototype">module broccoli.Builder.InvalidNodeError.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.InvalidNodeError.prototype.constructor">
+            function <span class="apidocSignatureSpan">broccoli.Builder.InvalidNodeError.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.NodeSetupError">module broccoli.Builder.NodeSetupError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.NodeSetupError.NodeSetupError">
+            function <span class="apidocSignatureSpan">broccoli.Builder.</span>NodeSetupError
+            <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.NodeSetupError.prototype">module broccoli.Builder.NodeSetupError.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.NodeSetupError.prototype.constructor">
+            function <span class="apidocSignatureSpan">broccoli.Builder.NodeSetupError.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.NodeWrapper">module broccoli.Builder.NodeWrapper</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.NodeWrapper.NodeWrapper">
+            function <span class="apidocSignatureSpan">broccoli.Builder.</span>NodeWrapper
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.NodeWrapper.prototype">module broccoli.Builder.NodeWrapper.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.NodeWrapper.prototype.formatInstantiationStackForTerminal">
+            function <span class="apidocSignatureSpan">broccoli.Builder.NodeWrapper.prototype.</span>formatInstantiationStackForTerminal
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.NodeWrapper.prototype.toJSON">
+            function <span class="apidocSignatureSpan">broccoli.Builder.NodeWrapper.prototype.</span>toJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.SourceNodeWrapper">module broccoli.Builder.SourceNodeWrapper</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.SourceNodeWrapper.SourceNodeWrapper">
+            function <span class="apidocSignatureSpan">broccoli.Builder.</span>SourceNodeWrapper
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.SourceNodeWrapper.prototype">module broccoli.Builder.SourceNodeWrapper.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.build">
+            function <span class="apidocSignatureSpan">broccoli.Builder.SourceNodeWrapper.prototype.</span>build
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.constructor">
+            function <span class="apidocSignatureSpan">broccoli.Builder.SourceNodeWrapper.prototype.</span>constructor
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.nodeInfoToJSON">
+            function <span class="apidocSignatureSpan">broccoli.Builder.SourceNodeWrapper.prototype.</span>nodeInfoToJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.setup">
+            function <span class="apidocSignatureSpan">broccoli.Builder.SourceNodeWrapper.prototype.</span>setup
+            <span class="apidocSignatureSpan">(features)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.toString">
+            function <span class="apidocSignatureSpan">broccoli.Builder.SourceNodeWrapper.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.TransformNodeWrapper">module broccoli.Builder.TransformNodeWrapper</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.TransformNodeWrapper.TransformNodeWrapper">
+            function <span class="apidocSignatureSpan">broccoli.Builder.</span>TransformNodeWrapper
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.TransformNodeWrapper.prototype">module broccoli.Builder.TransformNodeWrapper.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.build">
+            function <span class="apidocSignatureSpan">broccoli.Builder.TransformNodeWrapper.prototype.</span>build
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.constructor">
+            function <span class="apidocSignatureSpan">broccoli.Builder.TransformNodeWrapper.prototype.</span>constructor
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.nodeInfoToJSON">
+            function <span class="apidocSignatureSpan">broccoli.Builder.TransformNodeWrapper.prototype.</span>nodeInfoToJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.setup">
+            function <span class="apidocSignatureSpan">broccoli.Builder.TransformNodeWrapper.prototype.</span>setup
+            <span class="apidocSignatureSpan">(features)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.toString">
+            function <span class="apidocSignatureSpan">broccoli.Builder.TransformNodeWrapper.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Builder.prototype">module broccoli.Builder.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.prototype.build">
+            function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>build
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.prototype.checkInputPathsExist">
+            function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>checkInputPathsExist
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.prototype.cleanup">
+            function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>cleanup
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.prototype.makeNodeWrapper">
+            function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>makeNodeWrapper
+            <span class="apidocSignatureSpan">(node, _stack)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.prototype.mkTmpDir">
+            function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>mkTmpDir
+            <span class="apidocSignatureSpan">(nodeWrapper, type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.prototype.off">
+            function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>off
+            <span class="apidocSignatureSpan">(eventName, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.prototype.on">
+            function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>on
+            <span class="apidocSignatureSpan">(eventName, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.prototype.setupNodes">
+            function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>setupNodes
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.prototype.setupTmpDirs">
+            function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>setupTmpDirs
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Builder.prototype.trigger">
+            function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>trigger
+            <span class="apidocSignatureSpan">(eventName, options, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>features</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Watcher">module broccoli.Watcher</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Watcher.Watcher">
+            function <span class="apidocSignatureSpan">broccoli.</span>Watcher
+            <span class="apidocSignatureSpan">(builder, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.Watcher.prototype">module broccoli.Watcher.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Watcher.prototype._build">
+            function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>_build
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Watcher.prototype._change">
+            function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>_change
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Watcher.prototype._error">
+            function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>_error
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Watcher.prototype._quit">
+            function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>_quit
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Watcher.prototype.off">
+            function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>off
+            <span class="apidocSignatureSpan">(eventName, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Watcher.prototype.on">
+            function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>on
+            <span class="apidocSignatureSpan">(eventName, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Watcher.prototype.quit">
+            function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>quit
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Watcher.prototype.start">
+            function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>start
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.Watcher.prototype.trigger">
+            function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>trigger
+            <span class="apidocSignatureSpan">(eventName, options, label)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.WatcherAdapter">module broccoli.WatcherAdapter</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.WatcherAdapter.WatcherAdapter">
+            function <span class="apidocSignatureSpan">broccoli.</span>WatcherAdapter
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.WatcherAdapter.prototype">module broccoli.WatcherAdapter.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.WatcherAdapter.prototype.off">
+            function <span class="apidocSignatureSpan">broccoli.WatcherAdapter.prototype.</span>off
+            <span class="apidocSignatureSpan">(eventName, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.WatcherAdapter.prototype.on">
+            function <span class="apidocSignatureSpan">broccoli.WatcherAdapter.prototype.</span>on
+            <span class="apidocSignatureSpan">(eventName, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.WatcherAdapter.prototype.quit">
+            function <span class="apidocSignatureSpan">broccoli.WatcherAdapter.prototype.</span>quit
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.WatcherAdapter.prototype.trigger">
+            function <span class="apidocSignatureSpan">broccoli.WatcherAdapter.prototype.</span>trigger
+            <span class="apidocSignatureSpan">(eventName, options, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.WatcherAdapter.prototype.watch">
+            function <span class="apidocSignatureSpan">broccoli.WatcherAdapter.prototype.</span>watch
+            <span class="apidocSignatureSpan">(watchedPaths)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.broccoli.server">module broccoli.server</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.broccoli.server.serve">
+            function <span class="apidocSignatureSpan">broccoli.server.</span>serve
+            <span class="apidocSignatureSpan">(watcher, host, port)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli" id="apidoc.module.broccoli">module broccoli</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder" id="apidoc.element.broccoli.Builder">
+        function <span class="apidocSignatureSpan">broccoli.</span>Builder
+        <span class="apidocSignatureSpan">(outputNode, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Builder(outputNode, options) {
+  if (options == null) options = {}
+
+  this.outputNode = outputNode
+  this.tmpdir = options.tmpdir // can be null
+
+  this.unwatchedPaths = []
+  this.watchedPaths = []
+
+  // nodeWrappers store additional bookkeeping information, such as paths.
+  // This array contains them in topological (build) order.
+  this.nodeWrappers = []
+  // This populates this.nodeWrappers as a side effect
+  this.outputNodeWrapper = this.makeNodeWrapper(this.outputNode)
+
+  // Catching missing directories here helps prevent later errors when we set
+  // up the watcher.
+  this.checkInputPathsExist()
+
+  this.setupTmpDirs()
+
+  // Now that temporary directories are set up, we need to run the rest of the
+  // constructor in a try/catch block to clean them up if necessary.
+  try {
+
+    this.setupNodes()
+    this.outputPath = this.outputNodeWrapper.outputPath
+    this.buildId = 0
+
+  } catch (e) {
+    this.cleanup()
+    throw e
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.BuildError" id="apidoc.element.broccoli.Builder.BuildError">
+        function <span class="apidocSignatureSpan">broccoli.</span>Builder.BuildError
+        <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BuildError(originalError, nodeWrapper) {
+  if (nodeWrapper == null) { // for Chai
+    BuilderError.call(this)
+    return
+  }
+
+  originalError = wrapPrimitiveErrors(originalError)
+
+  // Create heavily augmented message for easy printing to the terminal. Web
+  // interfaces should refer to broccoliPayload.originalError.message instead.
+  var filePart = &#x27;&#x27;
+  if (originalError.file != null) {
+    filePart = originalError.file
+    if (originalError.line != null) {
+      filePart += &#x27;:&#x27; + originalError.line
+      if (originalError.column != null) {
+        // .column is zero-indexed
+        filePart += &#x27;:&#x27; + (originalError.column + 1)
+      }
+    }
+    filePart += &#x27;: &#x27;
+  }
+  var instantiationStack = &#x27;&#x27;
+  if (originalError.file == null) {
+    // We want to report the instantiation stack only for &#x22;unexpected&#x22; errors
+    // (bugs, internal errors), but not for compiler errors and such. For now,
+    // the presence of `.file` serves as a heuristic to distinguish between
+    // those cases.
+    instantiationStack = nodeWrapper.formatInstantiationStackForTerminal()
+  }
+  var message = filePart + originalError.message +
+    (originalError.treeDir ? &#x27;\n        in &#x27; + originalError.treeDir : &#x27;&#x27;) +
+    &#x27;\n        at &#x27; + nodeWrapper.label +
+    instantiationStack
+
+  BuilderError.call(this, message)
+  this.stack = originalError.stack
+
+  // This error API can change between minor Broccoli version bumps
+  this.broccoliPayload = {
+    originalError: originalError, // guaranteed to be error object, not primitive
+    originalMessage: originalError.message,
+    // node info
+    nodeId: nodeWrapper.id,
+    nodeLabel: nodeWrapper.label,
+    nodeName: nodeWrapper.nodeInfo.name,
+    nodeAnnotation: nodeWrapper.nodeInfo.annotation,
+    instantiationStack: nodeWrapper.nodeInfo.instantiationStack,
+    // error location (if any)
+    location: {
+      file: originalError.file,
+      treeDir: originalError.treeDir,
+      line: originalError.line,
+      column: originalError.column
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.BuilderError" id="apidoc.element.broccoli.Builder.BuilderError">
+        function <span class="apidocSignatureSpan">broccoli.</span>Builder.BuilderError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BuilderError(message) {
+  // Subclassing Error in ES5 is non-trivial because reasons, so we need this
+  // extra constructor logic from http://stackoverflow.com/a/17891099/525872.
+  // Note that ES5 subclasses of BuilderError don&#x27;t in turn need any special
+  // code.
+  var temp = Error.apply(this, arguments)
+  // Need to assign temp.name for correct error class in .stack and .message
+  temp.name = this.name = this.constructor.name
+  this.stack = temp.stack
+  this.message = temp.message
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.InvalidNodeError" id="apidoc.element.broccoli.Builder.InvalidNodeError">
+        function <span class="apidocSignatureSpan">broccoli.</span>Builder.InvalidNodeError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function InvalidNodeError(message) {
+  // Subclassing Error in ES5 is non-trivial because reasons, so we need this
+  // extra constructor logic from http://stackoverflow.com/a/17891099/525872.
+  var temp = Error.apply(this, arguments)
+  // Need to assign temp.name for correct error class in .stack and .message
+  temp.name = this.name = this.constructor.name
+  this.stack = temp.stack
+  this.message = temp.message
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.NodeSetupError" id="apidoc.element.broccoli.Builder.NodeSetupError">
+        function <span class="apidocSignatureSpan">broccoli.</span>Builder.NodeSetupError
+        <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function NodeSetupError(originalError, nodeWrapper) {
+  if (nodeWrapper == null) { // Chai calls new NodeSetupError() :(
+    BuilderError.call(this)
+    return
+  }
+  originalError = wrapPrimitiveErrors(originalError)
+  var message = originalError.message +
+    &#x27;\nat &#x27; + nodeWrapper.label +
+    nodeWrapper.formatInstantiationStackForTerminal()
+  BuilderError.call(this, message)
+  // The stack will have the original exception name, but that&#x27;s OK
+  this.stack = originalError.stack
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.NodeWrapper" id="apidoc.element.broccoli.Builder.NodeWrapper">
+        function <span class="apidocSignatureSpan">broccoli.</span>Builder.NodeWrapper
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function NodeWrapper() {
+  this.buildState = {}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.SourceNodeWrapper" id="apidoc.element.broccoli.Builder.SourceNodeWrapper">
+        function <span class="apidocSignatureSpan">broccoli.</span>Builder.SourceNodeWrapper
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SourceNodeWrapper() {
+  NodeWrapper.apply(this, arguments)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.TransformNodeWrapper" id="apidoc.element.broccoli.Builder.TransformNodeWrapper">
+        function <span class="apidocSignatureSpan">broccoli.</span>Builder.TransformNodeWrapper
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function TransformNodeWrapper() {
+  NodeWrapper.apply(this, arguments)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Watcher" id="apidoc.element.broccoli.Watcher">
+        function <span class="apidocSignatureSpan">broccoli.</span>Watcher
+        <span class="apidocSignatureSpan">(builder, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Watcher(builder, options) {
+  this.options = options || {}
+  if (this.options.debounce == null) this.options.debounce = 100
+  this.builder = builder
+  this.watcherAdapter = new WatcherAdapter(this.options.saneOptions)
+  this.currentBuild = null
+  this._rebuildScheduled = false
+  this._ready = false
+  this._quitting = false
+  this._lifetimeDeferred = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.WatcherAdapter" id="apidoc.element.broccoli.WatcherAdapter">
+        function <span class="apidocSignatureSpan">broccoli.</span>WatcherAdapter
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function WatcherAdapter(options) {
+  this.options = options || {}
+  this.options.filter = this.options.filter || defaultFilterFunction
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.cli" id="apidoc.element.broccoli.cli">
+        function <span class="apidocSignatureSpan">broccoli.</span>cli
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function broccoliCLI() {
+  var actionPerformed = false
+  program
+    .version(JSON.parse(fs.readFileSync(__dirname + &#x27;/../package.json&#x27;, &#x27;utf8&#x27;)).version)
+    .usage(&#x27;[options] &#x3c;command&#x3e; [&#x3c;args ...&#x3e;]&#x27;)
+
+  program.command(&#x27;serve&#x27;)
+    .description(&#x27;start a broccoli server&#x27;)
+    .option(&#x27;--port &#x3c;port&#x3e;&#x27;, &#x27;the port to bind to [4200]&#x27;, 4200)
+    .option(&#x27;--host &#x3c;host&#x3e;&#x27;, &#x27;the host to bind to [localhost]&#x27;, &#x27;localhost&#x27;)
+    .action(function(options) {
+      actionPerformed = true
+      broccoli.server.serve(new Watcher(getBuilder()), options.host, parseInt(options.port, 10))
+    })
+
+  program.command(&#x27;build &#x3c;target&#x3e;&#x27;)
+    .description(&#x27;output files to target directory&#x27;)
+    .action(function(outputDir) {
+      actionPerformed = true
+      if (fs.existsSync(outputDir)) {
+        console.error(outputDir + &#x27;/ already exists; we cannot build into an existing directory&#x27;)
+        process.exit(1)
+      }
+      var builder = getBuilder()
+      builder.build()
+        .then(function() {
+          copyDereferenceSync(builder.outputPath, outputDir)
+        })
+        .finally(function () {
+          return builder.cleanup()
+        })
+        .then(function () {
+          process.exit(0)
+        })
+        .catch(function (err) {
+          // Should show file and line/col if present
+          if (err.file) {
+            console.error(&#x27;File: &#x27; + err.file)
+          }
+          console.error(err.stack)
+          console.error(&#x27;\nBuild failed&#x27;)
+          process.exit(1)
+        })
+    })
+
+  program.parse(process.argv)
+  if(!actionPerformed) {
+    program.outputHelp()
+    process.exit(1)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.getMiddleware" id="apidoc.element.broccoli.getMiddleware">
+        function <span class="apidocSignatureSpan">broccoli.</span>getMiddleware
+        <span class="apidocSignatureSpan">(watcher, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getMiddleware(watcher, options) {
+  if (options == null) options = {}
+  if (options.autoIndex == null) options.autoIndex = true
+
+  var outputPath = watcher.builder.outputPath
+
+  return function broccoliMiddleware(request, response, next) {
+    if (watcher.currentBuild == null) {
+      throw new Error(&#x27;Waiting for initial build to start&#x27;)
+    }
+    watcher.currentBuild.then(function() {
+      var urlObj = url.parse(request.url)
+      var filename = path.join(outputPath, decodeURIComponent(urlObj.pathname))
+      var stat, lastModified, type, charset, buffer
+
+      // contains null byte or escapes directory
+      if (filename.indexOf(&#x27;\0&#x27;) !== -1 || filename.indexOf(outputPath) !== 0) {
+        response.writeHead(400)
+        response.end()
+        return
+      }
+
+      try {
+        stat = fs.statSync(filename)
+      } catch (e) {
+        // not found
+        next()
+        return
+      }
+
+      if (stat.isDirectory()) {
+        var hasIndex = fs.existsSync(path.join(filename, &#x27;index.html&#x27;))
+
+        if (!hasIndex &#x26;&#x26; !options.autoIndex) {
+          next()
+          return
+        }
+
+        // If no trailing slash, redirect. We use path.sep because filename
+        // has backslashes on Windows.
+        if (filename[filename.length - 1] !== path.sep) {
+          urlObj.pathname += &#x27;/&#x27;
+          response.setHeader(&#x27;Location&#x27;, url.format(urlObj))
+          response.setHeader(&#x27;Cache-Control&#x27;, &#x27;private, max-age=0, must-revalidate&#x27;)
+          response.writeHead(301)
+          response.end()
+          return
+        }
+
+        if (!hasIndex) { // implied: options.autoIndex is true
+          var context = {
+            url: request.url,
+            files: fs.readdirSync(filename).sort().map(function (child){
+              var stat = fs.statSync(path.join(filename,child)),
+                isDir = stat.isDirectory()
+              return {
+                href: child + (isDir ? &#x27;/&#x27; : &#x27;&#x27;),
+                type: isDir ? &#x27;dir&#x27; : path.extname(child).replace(&#x27;.&#x27;, &#x27;&#x27;).toLowerCase()
+              }
+            }),
+            liveReloadPath: options.liveReloadPath
+          }
+          response.setHeader(&#x27;Cache-Control&#x27;, &#x27;private, max-age=0, must-revalidate&#x27;)
+          response.writeHead(200)
+          response.end(dirTemplate(context))
+          return
+        }
+
+        // otherwise serve index.html
+        filename += &#x27;index.html&#x27;
+        stat = fs.statSync(filename)
+      }
+
+      lastModified = stat.mtime.toUTCString()
+      response.setHeader(&#x27;Last-Modified&#x27;, lastModified)
+      // nginx style treat last-modified as a tag since browsers echo it back
+      if (request.headers[&#x27;if-modified-since&#x27;] === lastModified) {
+        response.writeHead(304)
+        response.end()
+        return
+      }
+
+      type = mime.lookup(filename)
+      charset = mime.charsets.lookup(type)
+      if (charset) {
+        type += &#x27;; charset=&#x27; + charset
+      }
+      response.setHeader(&#x27;Cache-Control&#x27;, &#x27;private, max-age=0, must-revalidate&#x27;)
+      response.setHeader(&#x27;Content-Length&#x27;, stat.size)
+      response.setHeader(&#x27;Content-Type&#x27;, type)
+
+      // read file sync so we don&#x27;t hold open the file creating a race with
+      // the builder (Windows does not allow us to delete while the file is open).
+      buffer = fs.readFileSync(filename)
+      response.writeHead(200)
+      response.end(buffer)
+    }, function(buildError) {
+      // All errors thrown from builder.build() are guaranteed to be
+      // Builder.BuildError instances.
+      var context = {
+        stack: buildError.stack,
+        liveReloadPath: options.liveReloadPath,
+        payload: buildError.broccoliPayload
+      }
+      response.setHeader(&#x27;Content-Type&#x27;, &#x27;text/html&#x27;)
+      response.writeHead(500)
+      response.end(errorTemplate(context))
+    }).catch(function(err) { console.log(err.stack) })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.loadBrocfile" id="apidoc.element.broccoli.loadBrocfile">
+        function <span class="apidocSignatureSpan">broccoli.</span>loadBrocfile
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function loadBrocfile() {
+  var brocfile = findup(&#x27;Brocfile.js&#x27;, {
+    nocase: true
+  })
+
+  if (brocfile == null) throw new Error(&#x27;Brocfile.js not found&#x27;)
+
+  var baseDir = path.dirname(brocfile)
+
+  // The chdir should perhaps live somewhere else and not be a side effect of
+  // this function, or go away entirely
+  process.chdir(baseDir)
+
+  var node = require(brocfile)
+
+  return node
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder" id="apidoc.module.broccoli.Builder">module broccoli.Builder</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.Builder" id="apidoc.element.broccoli.Builder.Builder">
+        function <span class="apidocSignatureSpan">broccoli.</span>Builder
+        <span class="apidocSignatureSpan">(outputNode, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Builder(outputNode, options) {
+  if (options == null) options = {}
+
+  this.outputNode = outputNode
+  this.tmpdir = options.tmpdir // can be null
+
+  this.unwatchedPaths = []
+  this.watchedPaths = []
+
+  // nodeWrappers store additional bookkeeping information, such as paths.
+  // This array contains them in topological (build) order.
+  this.nodeWrappers = []
+  // This populates this.nodeWrappers as a side effect
+  this.outputNodeWrapper = this.makeNodeWrapper(this.outputNode)
+
+  // Catching missing directories here helps prevent later errors when we set
+  // up the watcher.
+  this.checkInputPathsExist()
+
+  this.setupTmpDirs()
+
+  // Now that temporary directories are set up, we need to run the rest of the
+  // constructor in a try/catch block to clean them up if necessary.
+  try {
+
+    this.setupNodes()
+    this.outputPath = this.outputNodeWrapper.outputPath
+    this.buildId = 0
+
+  } catch (e) {
+    this.cleanup()
+    throw e
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.BuildError" id="apidoc.element.broccoli.Builder.BuildError">
+        function <span class="apidocSignatureSpan">broccoli.Builder.</span>BuildError
+        <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BuildError(originalError, nodeWrapper) {
+  if (nodeWrapper == null) { // for Chai
+    BuilderError.call(this)
+    return
+  }
+
+  originalError = wrapPrimitiveErrors(originalError)
+
+  // Create heavily augmented message for easy printing to the terminal. Web
+  // interfaces should refer to broccoliPayload.originalError.message instead.
+  var filePart = &#x27;&#x27;
+  if (originalError.file != null) {
+    filePart = originalError.file
+    if (originalError.line != null) {
+      filePart += &#x27;:&#x27; + originalError.line
+      if (originalError.column != null) {
+        // .column is zero-indexed
+        filePart += &#x27;:&#x27; + (originalError.column + 1)
+      }
+    }
+    filePart += &#x27;: &#x27;
+  }
+  var instantiationStack = &#x27;&#x27;
+  if (originalError.file == null) {
+    // We want to report the instantiation stack only for &#x22;unexpected&#x22; errors
+    // (bugs, internal errors), but not for compiler errors and such. For now,
+    // the presence of `.file` serves as a heuristic to distinguish between
+    // those cases.
+    instantiationStack = nodeWrapper.formatInstantiationStackForTerminal()
+  }
+  var message = filePart + originalError.message +
+    (originalError.treeDir ? &#x27;\n        in &#x27; + originalError.treeDir : &#x27;&#x27;) +
+    &#x27;\n        at &#x27; + nodeWrapper.label +
+    instantiationStack
+
+  BuilderError.call(this, message)
+  this.stack = originalError.stack
+
+  // This error API can change between minor Broccoli version bumps
+  this.broccoliPayload = {
+    originalError: originalError, // guaranteed to be error object, not primitive
+    originalMessage: originalError.message,
+    // node info
+    nodeId: nodeWrapper.id,
+    nodeLabel: nodeWrapper.label,
+    nodeName: nodeWrapper.nodeInfo.name,
+    nodeAnnotation: nodeWrapper.nodeInfo.annotation,
+    instantiationStack: nodeWrapper.nodeInfo.instantiationStack,
+    // error location (if any)
+    location: {
+      file: originalError.file,
+      treeDir: originalError.treeDir,
+      line: originalError.line,
+      column: originalError.column
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.BuilderError" id="apidoc.element.broccoli.Builder.BuilderError">
+        function <span class="apidocSignatureSpan">broccoli.Builder.</span>BuilderError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BuilderError(message) {
+  // Subclassing Error in ES5 is non-trivial because reasons, so we need this
+  // extra constructor logic from http://stackoverflow.com/a/17891099/525872.
+  // Note that ES5 subclasses of BuilderError don&#x27;t in turn need any special
+  // code.
+  var temp = Error.apply(this, arguments)
+  // Need to assign temp.name for correct error class in .stack and .message
+  temp.name = this.name = this.constructor.name
+  this.stack = temp.stack
+  this.message = temp.message
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.InvalidNodeError" id="apidoc.element.broccoli.Builder.InvalidNodeError">
+        function <span class="apidocSignatureSpan">broccoli.Builder.</span>InvalidNodeError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function InvalidNodeError(message) {
+  // Subclassing Error in ES5 is non-trivial because reasons, so we need this
+  // extra constructor logic from http://stackoverflow.com/a/17891099/525872.
+  var temp = Error.apply(this, arguments)
+  // Need to assign temp.name for correct error class in .stack and .message
+  temp.name = this.name = this.constructor.name
+  this.stack = temp.stack
+  this.message = temp.message
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.NodeSetupError" id="apidoc.element.broccoli.Builder.NodeSetupError">
+        function <span class="apidocSignatureSpan">broccoli.Builder.</span>NodeSetupError
+        <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function NodeSetupError(originalError, nodeWrapper) {
+  if (nodeWrapper == null) { // Chai calls new NodeSetupError() :(
+    BuilderError.call(this)
+    return
+  }
+  originalError = wrapPrimitiveErrors(originalError)
+  var message = originalError.message +
+    &#x27;\nat &#x27; + nodeWrapper.label +
+    nodeWrapper.formatInstantiationStackForTerminal()
+  BuilderError.call(this, message)
+  // The stack will have the original exception name, but that&#x27;s OK
+  this.stack = originalError.stack
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.NodeWrapper" id="apidoc.element.broccoli.Builder.NodeWrapper">
+        function <span class="apidocSignatureSpan">broccoli.Builder.</span>NodeWrapper
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function NodeWrapper() {
+  this.buildState = {}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.SourceNodeWrapper" id="apidoc.element.broccoli.Builder.SourceNodeWrapper">
+        function <span class="apidocSignatureSpan">broccoli.Builder.</span>SourceNodeWrapper
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SourceNodeWrapper() {
+  NodeWrapper.apply(this, arguments)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.TransformNodeWrapper" id="apidoc.element.broccoli.Builder.TransformNodeWrapper">
+        function <span class="apidocSignatureSpan">broccoli.Builder.</span>TransformNodeWrapper
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function TransformNodeWrapper() {
+  NodeWrapper.apply(this, arguments)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.BuildError" id="apidoc.module.broccoli.Builder.BuildError">module broccoli.Builder.BuildError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.BuildError.BuildError" id="apidoc.element.broccoli.Builder.BuildError.BuildError">
+        function <span class="apidocSignatureSpan">broccoli.Builder.</span>BuildError
+        <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BuildError(originalError, nodeWrapper) {
+  if (nodeWrapper == null) { // for Chai
+    BuilderError.call(this)
+    return
+  }
+
+  originalError = wrapPrimitiveErrors(originalError)
+
+  // Create heavily augmented message for easy printing to the terminal. Web
+  // interfaces should refer to broccoliPayload.originalError.message instead.
+  var filePart = &#x27;&#x27;
+  if (originalError.file != null) {
+    filePart = originalError.file
+    if (originalError.line != null) {
+      filePart += &#x27;:&#x27; + originalError.line
+      if (originalError.column != null) {
+        // .column is zero-indexed
+        filePart += &#x27;:&#x27; + (originalError.column + 1)
+      }
+    }
+    filePart += &#x27;: &#x27;
+  }
+  var instantiationStack = &#x27;&#x27;
+  if (originalError.file == null) {
+    // We want to report the instantiation stack only for &#x22;unexpected&#x22; errors
+    // (bugs, internal errors), but not for compiler errors and such. For now,
+    // the presence of `.file` serves as a heuristic to distinguish between
+    // those cases.
+    instantiationStack = nodeWrapper.formatInstantiationStackForTerminal()
+  }
+  var message = filePart + originalError.message +
+    (originalError.treeDir ? &#x27;\n        in &#x27; + originalError.treeDir : &#x27;&#x27;) +
+    &#x27;\n        at &#x27; + nodeWrapper.label +
+    instantiationStack
+
+  BuilderError.call(this, message)
+  this.stack = originalError.stack
+
+  // This error API can change between minor Broccoli version bumps
+  this.broccoliPayload = {
+    originalError: originalError, // guaranteed to be error object, not primitive
+    originalMessage: originalError.message,
+    // node info
+    nodeId: nodeWrapper.id,
+    nodeLabel: nodeWrapper.label,
+    nodeName: nodeWrapper.nodeInfo.name,
+    nodeAnnotation: nodeWrapper.nodeInfo.annotation,
+    instantiationStack: nodeWrapper.nodeInfo.instantiationStack,
+    // error location (if any)
+    location: {
+      file: originalError.file,
+      treeDir: originalError.treeDir,
+      line: originalError.line,
+      column: originalError.column
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.BuildError.prototype" id="apidoc.module.broccoli.Builder.BuildError.prototype">module broccoli.Builder.BuildError.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.BuildError.prototype.constructor" id="apidoc.element.broccoli.Builder.BuildError.prototype.constructor">
+        function <span class="apidocSignatureSpan">broccoli.Builder.BuildError.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BuildError(originalError, nodeWrapper) {
+  if (nodeWrapper == null) { // for Chai
+    BuilderError.call(this)
+    return
+  }
+
+  originalError = wrapPrimitiveErrors(originalError)
+
+  // Create heavily augmented message for easy printing to the terminal. Web
+  // interfaces should refer to broccoliPayload.originalError.message instead.
+  var filePart = &#x27;&#x27;
+  if (originalError.file != null) {
+    filePart = originalError.file
+    if (originalError.line != null) {
+      filePart += &#x27;:&#x27; + originalError.line
+      if (originalError.column != null) {
+        // .column is zero-indexed
+        filePart += &#x27;:&#x27; + (originalError.column + 1)
+      }
+    }
+    filePart += &#x27;: &#x27;
+  }
+  var instantiationStack = &#x27;&#x27;
+  if (originalError.file == null) {
+    // We want to report the instantiation stack only for &#x22;unexpected&#x22; errors
+    // (bugs, internal errors), but not for compiler errors and such. For now,
+    // the presence of `.file` serves as a heuristic to distinguish between
+    // those cases.
+    instantiationStack = nodeWrapper.formatInstantiationStackForTerminal()
+  }
+  var message = filePart + originalError.message +
+    (originalError.treeDir ? &#x27;\n        in &#x27; + originalError.treeDir : &#x27;&#x27;) +
+    &#x27;\n        at &#x27; + nodeWrapper.label +
+    instantiationStack
+
+  BuilderError.call(this, message)
+  this.stack = originalError.stack
+
+  // This error API can change between minor Broccoli version bumps
+  this.broccoliPayload = {
+    originalError: originalError, // guaranteed to be error object, not primitive
+    originalMessage: originalError.message,
+    // node info
+    nodeId: nodeWrapper.id,
+    nodeLabel: nodeWrapper.label,
+    nodeName: nodeWrapper.nodeInfo.name,
+    nodeAnnotation: nodeWrapper.nodeInfo.annotation,
+    instantiationStack: nodeWrapper.nodeInfo.instantiationStack,
+    // error location (if any)
+    location: {
+      file: originalError.file,
+      treeDir: originalError.treeDir,
+      line: originalError.line,
+      column: originalError.column
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.BuilderError" id="apidoc.module.broccoli.Builder.BuilderError">module broccoli.Builder.BuilderError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.BuilderError.BuilderError" id="apidoc.element.broccoli.Builder.BuilderError.BuilderError">
+        function <span class="apidocSignatureSpan">broccoli.Builder.</span>BuilderError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BuilderError(message) {
+  // Subclassing Error in ES5 is non-trivial because reasons, so we need this
+  // extra constructor logic from http://stackoverflow.com/a/17891099/525872.
+  // Note that ES5 subclasses of BuilderError don&#x27;t in turn need any special
+  // code.
+  var temp = Error.apply(this, arguments)
+  // Need to assign temp.name for correct error class in .stack and .message
+  temp.name = this.name = this.constructor.name
+  this.stack = temp.stack
+  this.message = temp.message
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.BuilderError.prototype" id="apidoc.module.broccoli.Builder.BuilderError.prototype">module broccoli.Builder.BuilderError.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.BuilderError.prototype.constructor" id="apidoc.element.broccoli.Builder.BuilderError.prototype.constructor">
+        function <span class="apidocSignatureSpan">broccoli.Builder.BuilderError.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BuilderError(message) {
+  // Subclassing Error in ES5 is non-trivial because reasons, so we need this
+  // extra constructor logic from http://stackoverflow.com/a/17891099/525872.
+  // Note that ES5 subclasses of BuilderError don&#x27;t in turn need any special
+  // code.
+  var temp = Error.apply(this, arguments)
+  // Need to assign temp.name for correct error class in .stack and .message
+  temp.name = this.name = this.constructor.name
+  this.stack = temp.stack
+  this.message = temp.message
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.InvalidNodeError" id="apidoc.module.broccoli.Builder.InvalidNodeError">module broccoli.Builder.InvalidNodeError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.InvalidNodeError.InvalidNodeError" id="apidoc.element.broccoli.Builder.InvalidNodeError.InvalidNodeError">
+        function <span class="apidocSignatureSpan">broccoli.Builder.</span>InvalidNodeError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function InvalidNodeError(message) {
+  // Subclassing Error in ES5 is non-trivial because reasons, so we need this
+  // extra constructor logic from http://stackoverflow.com/a/17891099/525872.
+  var temp = Error.apply(this, arguments)
+  // Need to assign temp.name for correct error class in .stack and .message
+  temp.name = this.name = this.constructor.name
+  this.stack = temp.stack
+  this.message = temp.message
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.InvalidNodeError.prototype" id="apidoc.module.broccoli.Builder.InvalidNodeError.prototype">module broccoli.Builder.InvalidNodeError.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.InvalidNodeError.prototype.constructor" id="apidoc.element.broccoli.Builder.InvalidNodeError.prototype.constructor">
+        function <span class="apidocSignatureSpan">broccoli.Builder.InvalidNodeError.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function InvalidNodeError(message) {
+  // Subclassing Error in ES5 is non-trivial because reasons, so we need this
+  // extra constructor logic from http://stackoverflow.com/a/17891099/525872.
+  var temp = Error.apply(this, arguments)
+  // Need to assign temp.name for correct error class in .stack and .message
+  temp.name = this.name = this.constructor.name
+  this.stack = temp.stack
+  this.message = temp.message
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.NodeSetupError" id="apidoc.module.broccoli.Builder.NodeSetupError">module broccoli.Builder.NodeSetupError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.NodeSetupError.NodeSetupError" id="apidoc.element.broccoli.Builder.NodeSetupError.NodeSetupError">
+        function <span class="apidocSignatureSpan">broccoli.Builder.</span>NodeSetupError
+        <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function NodeSetupError(originalError, nodeWrapper) {
+  if (nodeWrapper == null) { // Chai calls new NodeSetupError() :(
+    BuilderError.call(this)
+    return
+  }
+  originalError = wrapPrimitiveErrors(originalError)
+  var message = originalError.message +
+    &#x27;\nat &#x27; + nodeWrapper.label +
+    nodeWrapper.formatInstantiationStackForTerminal()
+  BuilderError.call(this, message)
+  // The stack will have the original exception name, but that&#x27;s OK
+  this.stack = originalError.stack
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.NodeSetupError.prototype" id="apidoc.module.broccoli.Builder.NodeSetupError.prototype">module broccoli.Builder.NodeSetupError.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.NodeSetupError.prototype.constructor" id="apidoc.element.broccoli.Builder.NodeSetupError.prototype.constructor">
+        function <span class="apidocSignatureSpan">broccoli.Builder.NodeSetupError.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(originalError, nodeWrapper)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function NodeSetupError(originalError, nodeWrapper) {
+  if (nodeWrapper == null) { // Chai calls new NodeSetupError() :(
+    BuilderError.call(this)
+    return
+  }
+  originalError = wrapPrimitiveErrors(originalError)
+  var message = originalError.message +
+    &#x27;\nat &#x27; + nodeWrapper.label +
+    nodeWrapper.formatInstantiationStackForTerminal()
+  BuilderError.call(this, message)
+  // The stack will have the original exception name, but that&#x27;s OK
+  this.stack = originalError.stack
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.NodeWrapper" id="apidoc.module.broccoli.Builder.NodeWrapper">module broccoli.Builder.NodeWrapper</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.NodeWrapper.NodeWrapper" id="apidoc.element.broccoli.Builder.NodeWrapper.NodeWrapper">
+        function <span class="apidocSignatureSpan">broccoli.Builder.</span>NodeWrapper
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function NodeWrapper() {
+  this.buildState = {}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.NodeWrapper.prototype" id="apidoc.module.broccoli.Builder.NodeWrapper.prototype">module broccoli.Builder.NodeWrapper.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.NodeWrapper.prototype.formatInstantiationStackForTerminal" id="apidoc.element.broccoli.Builder.NodeWrapper.prototype.formatInstantiationStackForTerminal">
+        function <span class="apidocSignatureSpan">broccoli.Builder.NodeWrapper.prototype.</span>formatInstantiationStackForTerminal
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">formatInstantiationStackForTerminal = function () {
+  return &#x27;\n-~- created here: -~-\n&#x27; + this.nodeInfo.instantiationStack + &#x27;\n-~- (end) -~-&#x27;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.NodeWrapper.prototype.toJSON" id="apidoc.element.broccoli.Builder.NodeWrapper.prototype.toJSON">
+        function <span class="apidocSignatureSpan">broccoli.Builder.NodeWrapper.prototype.</span>toJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJSON = function () {
+  return undefinedToNull({
+    id: this.id,
+    nodeInfo: this.nodeInfoToJSON(),
+    buildState: this.buildState,
+    label: this.label,
+    inputNodeWrappers: this.inputNodeWrappers.map(function(nw) { return nw.id }),
+    cachePath: this.cachePath,
+    outputPath: this.outputPath
+    // leave out node, originalNode, inputPaths (redundant), build
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.SourceNodeWrapper" id="apidoc.module.broccoli.Builder.SourceNodeWrapper">module broccoli.Builder.SourceNodeWrapper</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.SourceNodeWrapper.SourceNodeWrapper" id="apidoc.element.broccoli.Builder.SourceNodeWrapper.SourceNodeWrapper">
+        function <span class="apidocSignatureSpan">broccoli.Builder.</span>SourceNodeWrapper
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SourceNodeWrapper() {
+  NodeWrapper.apply(this, arguments)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.SourceNodeWrapper.prototype" id="apidoc.module.broccoli.Builder.SourceNodeWrapper.prototype">module broccoli.Builder.SourceNodeWrapper.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.build" id="apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.build">
+        function <span class="apidocSignatureSpan">broccoli.Builder.SourceNodeWrapper.prototype.</span>build
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">build = function () {
+  // We only check here that the sourceDirectory exists and is a directory
+  try {
+    if (!fs.statSync(this.nodeInfo.sourceDirectory).isDirectory()) {
+      throw new Error(&#x27;Not a directory&#x27;)
+    }
+  } catch (err) { // stat might throw, or we might throw
+    err.file = this.nodeInfo.sourceDirectory
+    // fs.stat augments error message with file name, but that&#x27;s redundant
+    // with our err.file, so we strip it
+    err.message = err.message.replace(/, stat &#x27;[^&#x27;\n]*&#x27;$/m, &#x27;&#x27;)
+    throw err
+  }
+
+  this.buildState.selfTime = 0
+  this.buildState.totalTime = 0
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.constructor" id="apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.constructor">
+        function <span class="apidocSignatureSpan">broccoli.Builder.SourceNodeWrapper.prototype.</span>constructor
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SourceNodeWrapper() {
+  NodeWrapper.apply(this, arguments)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.nodeInfoToJSON" id="apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.nodeInfoToJSON">
+        function <span class="apidocSignatureSpan">broccoli.Builder.SourceNodeWrapper.prototype.</span>nodeInfoToJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">nodeInfoToJSON = function () {
+  return undefinedToNull({
+    nodeType: &#x27;source&#x27;,
+    sourceDirectory: this.nodeInfo.sourceDirectory,
+    watched: this.nodeInfo.watched,
+    name: this.nodeInfo.name,
+    annotation: this.nodeInfo.annotation
+    // leave out instantiationStack
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.setup" id="apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.setup">
+        function <span class="apidocSignatureSpan">broccoli.Builder.SourceNodeWrapper.prototype.</span>setup
+        <span class="apidocSignatureSpan">(features)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setup = function (features) {
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.toString" id="apidoc.element.broccoli.Builder.SourceNodeWrapper.prototype.toString">
+        function <span class="apidocSignatureSpan">broccoli.Builder.SourceNodeWrapper.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  var hint = this.nodeInfo.sourceDirectory +
+    (this.nodeInfo.watched ? &#x27;&#x27; : &#x27; (unwatched)&#x27;)
+  return &#x27;[NodeWrapper:&#x27; + this.id + &#x27; &#x27; + hint + &#x27;]&#x27;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.TransformNodeWrapper" id="apidoc.module.broccoli.Builder.TransformNodeWrapper">module broccoli.Builder.TransformNodeWrapper</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.TransformNodeWrapper.TransformNodeWrapper" id="apidoc.element.broccoli.Builder.TransformNodeWrapper.TransformNodeWrapper">
+        function <span class="apidocSignatureSpan">broccoli.Builder.</span>TransformNodeWrapper
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function TransformNodeWrapper() {
+  NodeWrapper.apply(this, arguments)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.TransformNodeWrapper.prototype" id="apidoc.module.broccoli.Builder.TransformNodeWrapper.prototype">module broccoli.Builder.TransformNodeWrapper.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.build" id="apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.build">
+        function <span class="apidocSignatureSpan">broccoli.Builder.TransformNodeWrapper.prototype.</span>build
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">build = function () {
+  var self = this
+
+  var startTime = process.hrtime()
+
+  if (!this.nodeInfo.persistentOutput) {
+    rimraf.sync(this.outputPath)
+    fs.mkdirSync(this.outputPath)
+  }
+
+  return RSVP.resolve(self.callbackObject.build())
+
+    .then(function() {
+      var now = process.hrtime()
+      // Build time in milliseconds
+      self.buildState.selfTime = 1000 * ((now[0] - startTime[0]) + (now[1] - startTime[1]) / 1e9)
+      self.buildState.totalTime = self.buildState.selfTime
+      for (var i = 0; i &#x3c; self.inputNodeWrappers.length; i++) {
+        self.buildState.totalTime += self.inputNodeWrappers[i].buildState.totalTime
+      }
+    })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.constructor" id="apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.constructor">
+        function <span class="apidocSignatureSpan">broccoli.Builder.TransformNodeWrapper.prototype.</span>constructor
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function TransformNodeWrapper() {
+  NodeWrapper.apply(this, arguments)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.nodeInfoToJSON" id="apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.nodeInfoToJSON">
+        function <span class="apidocSignatureSpan">broccoli.Builder.TransformNodeWrapper.prototype.</span>nodeInfoToJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">nodeInfoToJSON = function () {
+  return undefinedToNull({
+    nodeType: &#x27;transform&#x27;,
+    name: this.nodeInfo.name,
+    annotation: this.nodeInfo.annotation,
+    persistentOutput: this.nodeInfo.persistentOutput,
+    needsCache: this.nodeInfo.needsCache
+    // leave out instantiationStack (too long), inputNodes, and callbacks
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.setup" id="apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.setup">
+        function <span class="apidocSignatureSpan">broccoli.Builder.TransformNodeWrapper.prototype.</span>setup
+        <span class="apidocSignatureSpan">(features)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setup = function (features) {
+  this.nodeInfo.setup(features, {
+    inputPaths: this.inputPaths,
+    outputPath: this.outputPath,
+    cachePath: this.cachePath
+  })
+  this.callbackObject = this.nodeInfo.getCallbackObject()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.toString" id="apidoc.element.broccoli.Builder.TransformNodeWrapper.prototype.toString">
+        function <span class="apidocSignatureSpan">broccoli.Builder.TransformNodeWrapper.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  var hint = this.label
+  hint = this.label
+  if (this.inputNodeWrappers) { // a bit defensive to deal with partially-constructed node wrappers
+    hint += &#x27; inputNodeWrappers:[&#x27; + this.inputNodeWrappers.map(function(nw) { return nw.id }) + &#x27;]&#x27;
+  }
+  hint += &#x27; at &#x27; + this.outputPath
+  if (this.buildState.selfTime != null) {
+    hint += &#x27; (&#x27; + Math.round(this.buildState.selfTime) + &#x27; ms)&#x27;
+  }
+  return &#x27;[NodeWrapper:&#x27; + this.id + &#x27; &#x27; + hint + &#x27;]&#x27;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Builder.prototype" id="apidoc.module.broccoli.Builder.prototype">module broccoli.Builder.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.prototype.build" id="apidoc.element.broccoli.Builder.prototype.build">
+        function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>build
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">build = function () {
+  var self = this
+  this.buildId++
+  var promise = RSVP.resolve()
+  this.nodeWrappers.forEach(function(nw) {
+    // We use `.forEach` instead of `for` to close nested functions over `nw`
+
+    // Wipe all buildState objects at the beginning of the build
+    nw.buildState = {}
+
+    promise = promise
+      .then(function() {
+        // We use a nested .then/.catch so that the .catch can only catch errors
+        // from this node, but not from previous nodes.
+        return RSVP.resolve()
+          .then(function() {
+            self.trigger(&#x27;beginNode&#x27;, nw)
+          })
+          .then(function() {
+            return nw.build()
+          })
+          .finally(function() {
+            self.trigger(&#x27;endNode&#x27;, nw)
+          })
+          .catch(function(err) {
+            throw new BuildError(err, nw)
+          })
+      })
+  })
+  return promise
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.prototype.checkInputPathsExist" id="apidoc.element.broccoli.Builder.prototype.checkInputPathsExist">
+        function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>checkInputPathsExist
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkInputPathsExist = function () {
+  // We might consider checking this.unwatchedPaths as well.
+  for (var i = 0; i &#x3c; this.watchedPaths.length; i++) {
+    var isDirectory
+    try {
+      isDirectory = fs.statSync(this.watchedPaths[i]).isDirectory()
+    } catch (err) {
+      throw new Builder.BuilderError(&#x27;Directory not found: &#x27; + this.watchedPaths[i])
+    }
+    if (!isDirectory) {
+      throw new Builder.BuilderError(&#x27;Not a directory: &#x27; + this.watchedPaths[i])
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.prototype.cleanup" id="apidoc.element.broccoli.Builder.prototype.cleanup">
+        function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>cleanup
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cleanup = function () {
+  this.builderTmpDirCleanup()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.prototype.makeNodeWrapper" id="apidoc.element.broccoli.Builder.prototype.makeNodeWrapper">
+        function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>makeNodeWrapper
+        <span class="apidocSignatureSpan">(node, _stack)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">makeNodeWrapper = function (node, _stack) {
+  if (_stack == null) _stack = []
+  var self = this
+
+  // Dedupe nodes reachable through multiple paths
+  for (var i = 0; i &#x3c; this.nodeWrappers.length; i++) {
+    if (this.nodeWrappers[i].originalNode === node) {
+      return this.nodeWrappers[i]
+    }
+  }
+
+  // Turn string nodes into WatchedDir nodes
+  var originalNode = node // keep original (possibly string) node around for deduping
+  if (typeof node === &#x27;string&#x27;) {
+    node = new WatchedDir(node, { annotation: &#x27;string node&#x27; })
+  }
+
+  // Call node.__broccoliGetInfo__()
+  var nodeInfo
+  try {
+    nodeInfo = broccoliNodeInfo.getNodeInfo(node)
+  } catch (e) {
+    if (!(e instanceof broccoliNodeInfo.InvalidNodeError)) throw e
+    // We don&#x27;t have the instantiation stack of an invalid node, so to aid
+    // debugging, we instead report its parent node
+    var messageSuffix = (_stack.length &#x3e; 0) ?
+      &#x27;\nused as input node to &#x27; + _stack[_stack.length-1].label +
+        _stack[_stack.length-1].formatInstantiationStackForTerminal()
+      : &#x27;\nused as output node&#x27;
+    throw new broccoliNodeInfo.InvalidNodeError(e.message + messageSuffix)
+  }
+
+  // Compute label, like &#x22;Funnel (test suite)&#x22;
+  var label = nodeInfo.name
+  var labelExtras = []
+  if (nodeInfo.nodeType === &#x27;source&#x27;) labelExtras.push(nodeInfo.sourceDirectory)
+  if (nodeInfo.annotation != null) labelExtras.push(nodeInfo.annotation)
+  if (labelExtras.length &#x3e; 0) label += &#x27; (&#x27; + labelExtras.join(&#x27;; &#x27;) + &#x27;)&#x27;
+
+  // We start constructing the nodeWrapper here because we&#x27;ll need the partial
+  // nodeWrapper for the _stack. Later we&#x27;ll add more properties.
+  var nodeWrapper = nodeInfo.nodeType === &#x27;transform&#x27; ?
+    new TransformNodeWrapper : new SourceNodeWrapper
+  nodeWrapper.nodeInfo = nodeInfo
+  nodeWrapper.originalNode = originalNode
+  nodeWrapper.node = node
+  nodeWrapper.label = label
+
+  // Detect cycles
+  for (i = 0; i &#x3c; _stack.length; i++) {
+    if (_stack[i].node === originalNode) {
+      var cycleMessage = &#x27;Cycle in node graph: &#x27;
+      for (var j = i; j &#x3c; _stack.length; j++) {
+        cycleMessage += _stack[j].label + &#x27; -&#x3e; &#x27;
+      }
+      cycleMessage += nodeWrapper.label
+      throw new BuilderError(cycleMessage)
+    }
+  }
+
+  // For &#x27;transform&#x27; nodes, recurse into the input nodes; for &#x27;source&#x27; nodes,
+  // record paths.
+  var inputNodeWrappers = []
+  if (nodeInfo.nodeType === &#x27;transform&#x27;) {
+    var newStack = _stack.concat([nodeWrapper])
+    inputNodeWrappers = nodeInfo.inputNodes.map(function(inputNode) {
+      return self.makeNodeWrapper(inputNode, newStack)
+    })
+  } else { // nodeType === &#x27;source&#x27;
+    if (nodeInfo.watched) {
+      this.watchedPaths.push(nodeInfo.sourceDirectory)
+    } else {
+      this.unwatchedPaths.push(nodeInfo.sourceDirectory)
+    }
+  }
+
+  // For convenience, all nodeWrappers get an `inputNodeWrappers` array; for
+  // &#x27;source&#x27; nodes it&#x27;s empty.
+  nodeWrapper.inputNodeWrappers = inputNodeWrappers
+
+  nodeWrapper.id = this.nodeWrappers.length
+
+  // this.nodeWrappers will contain all the node wrappers in topological
+  // order, i.e. each node comes after all its input nodes.
+  //
+  // It&#x27;s unfortunate that we&#x27;re mutating this.nodeWrappers as a side effect,
+  // but since we work backwards from the output node to discover all the
+  // input nodes, it&#x27;s harder to do a side-effect-free topological sort.
+  this.nodeWrappers.push(nodeWrapper)
+
+  return nodeWrapper
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.prototype.mkTmpDir" id="apidoc.element.broccoli.Builder.prototype.mkTmpDir">
+        function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>mkTmpDir
+        <span class="apidocSignatureSpan">(nodeWrapper, type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mkTmpDir = function (nodeWrapper, type) {
+  var nameAndAnnotation = nodeWrapper.nodeInfo.name + &#x27; &#x27; + (nodeWrapper.nodeInfo.annotation || &#x27;&#x27;)
+  // slugify turns fooBar into foobar, so we call underscored first to
+  // preserve word boundaries
+  var suffix = underscoreString.underscored(nameAndAnnotation.substr(0, 60))
+  suffix = underscoreString.slugify(suffix).replace(/-/g, &#x27;_&#x27;)
+  // 1 .. 147 -&#x3e; &#x27;001&#x27; .. &#x27;147&#x27;
+  var paddedId = underscoreString.pad(&#x27;&#x27; + nodeWrapper.id, (&#x27;&#x27; + this.nodeWrappers.length).length, &#x27;0&#x27;)
+  var dirname = type + &#x27;-&#x27; + paddedId + &#x27;-&#x27; + suffix
+  var tmpDir = path.join(this.builderTmpDir, dirname)
+  fs.mkdirSync(tmpDir)
+  return tmpDir
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.prototype.off" id="apidoc.element.broccoli.Builder.prototype.off">
+        function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>off
+        <span class="apidocSignatureSpan">(eventName, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function off(eventName, callback) {
+  var allCallbacks = callbacksFor(this),
+      callbacks = undefined,
+      index = undefined;
+
+  if (!callback) {
+    allCallbacks[eventName] = [];
+    return;
+  }
+
+  callbacks = allCallbacks[eventName];
+
+  index = indexOf(callbacks, callback);
+
+  if (index !== -1) {
+    callbacks.splice(index, 1);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.prototype.on" id="apidoc.element.broccoli.Builder.prototype.on">
+        function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>on
+        <span class="apidocSignatureSpan">(eventName, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function on(eventName, callback) {
+  if (typeof callback !== &#x27;function&#x27;) {
+    throw new TypeError(&#x27;Callback must be a function&#x27;);
+  }
+
+  var allCallbacks = callbacksFor(this),
+      callbacks = undefined;
+
+  callbacks = allCallbacks[eventName];
+
+  if (!callbacks) {
+    callbacks = allCallbacks[eventName] = [];
+  }
+
+  if (indexOf(callbacks, callback) === -1) {
+    callbacks.push(callback);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.prototype.setupNodes" id="apidoc.element.broccoli.Builder.prototype.setupNodes">
+        function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>setupNodes
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setupNodes = function () {
+  for (var i = 0; i &#x3c; this.nodeWrappers.length; i++) {
+    var nw = this.nodeWrappers[i]
+    try {
+      nw.setup(this.features)
+    } catch (err) {
+      throw new NodeSetupError(err, nw)
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.prototype.setupTmpDirs" id="apidoc.element.broccoli.Builder.prototype.setupTmpDirs">
+        function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>setupTmpDirs
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setupTmpDirs = function () {
+  // Create temporary directories for each node:
+  //
+  //   out-01-someplugin/
+  //   out-02-otherplugin/
+  //   cache-01-someplugin/
+  //   cache-02-otherplugin/
+  //
+  // Here&#x27;s an alternative directory structure we might consider (it&#x27;s not
+  // clear which structure makes debugging easier):
+  //
+  //   01-someplugin/
+  //     out/
+  //     cache/
+  //     in-1 -&#x3e; ... // symlink for convenience
+  //     in-2 -&#x3e; ...
+  //   02-otherplugin/
+  //     ...
+  var tmpobj = tmp.dirSync({ prefix: &#x27;broccoli-&#x27;, unsafeCleanup: true, dir: this.tmpdir })
+  this.builderTmpDir = tmpobj.name
+  this.builderTmpDirCleanup = tmpobj.removeCallback
+  for (var i = 0; i &#x3c; this.nodeWrappers.length; i++) {
+    var nodeWrapper = this.nodeWrappers[i]
+    if (nodeWrapper.nodeInfo.nodeType === &#x27;transform&#x27;) {
+      nodeWrapper.inputPaths = nodeWrapper.inputNodeWrappers.map(function(nw) {
+        return nw.outputPath
+      })
+      nodeWrapper.outputPath = this.mkTmpDir(nodeWrapper, &#x27;out&#x27;)
+
+      if (nodeWrapper.nodeInfo.needsCache) {
+        nodeWrapper.cachePath = this.mkTmpDir(nodeWrapper, &#x27;cache&#x27;)
+      }
+    } else { // nodeType === &#x27;source&#x27;
+      // We could name this .sourcePath, but with .outputPath the code is simpler.
+      nodeWrapper.outputPath = nodeWrapper.nodeInfo.sourceDirectory
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Builder.prototype.trigger" id="apidoc.element.broccoli.Builder.prototype.trigger">
+        function <span class="apidocSignatureSpan">broccoli.Builder.prototype.</span>trigger
+        <span class="apidocSignatureSpan">(eventName, options, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function trigger(eventName, options, label) {
+  var allCallbacks = callbacksFor(this),
+      callbacks = undefined,
+      callback = undefined;
+
+  if (callbacks = allCallbacks[eventName]) {
+    // Don&#x27;t cache the callbacks.length since it may grow
+    for (var i = 0; i &#x3c; callbacks.length; i++) {
+      callback = callbacks[i];
+
+      callback(options, label);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Watcher" id="apidoc.module.broccoli.Watcher">module broccoli.Watcher</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Watcher.Watcher" id="apidoc.element.broccoli.Watcher.Watcher">
+        function <span class="apidocSignatureSpan">broccoli.</span>Watcher
+        <span class="apidocSignatureSpan">(builder, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Watcher(builder, options) {
+  this.options = options || {}
+  if (this.options.debounce == null) this.options.debounce = 100
+  this.builder = builder
+  this.watcherAdapter = new WatcherAdapter(this.options.saneOptions)
+  this.currentBuild = null
+  this._rebuildScheduled = false
+  this._ready = false
+  this._quitting = false
+  this._lifetimeDeferred = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.Watcher.prototype" id="apidoc.module.broccoli.Watcher.prototype">module broccoli.Watcher.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Watcher.prototype._build" id="apidoc.element.broccoli.Watcher.prototype._build">
+        function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>_build
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_build = function () {
+  var self = this
+
+  logger.debug(&#x27;buildStart&#x27;)
+  this.trigger(&#x27;buildStart&#x27;)
+  var buildPromise = self.builder.build()
+  // Trigger change/error events. Importantly, if somebody else chains to
+  // currentBuild, their callback will come after our events have
+  // triggered, because we registered our callback first.
+  buildPromise.then(function() {
+    logger.debug(&#x27;buildSuccess&#x27;)
+    self.trigger(&#x27;buildSuccess&#x27;)
+  }, function(err) {
+    logger.debug(&#x27;buildFailure&#x27;)
+    self.trigger(&#x27;buildFailure&#x27;, err)
+  })
+  return buildPromise
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Watcher.prototype._change" id="apidoc.element.broccoli.Watcher.prototype._change">
+        function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>_change
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_change = function () {
+  var self = this
+
+  if (!this._ready) {
+    logger.debug(&#x27;change&#x27;, &#x27;ignored: before ready&#x27;)
+    return
+  }
+  if (this._rebuildScheduled) {
+    logger.debug(&#x27;change&#x27;, &#x27;ignored: rebuild scheduled already&#x27;)
+    return
+  }
+  logger.debug(&#x27;change&#x27;)
+  this._rebuildScheduled = true
+  // Wait for current build, and ignore build failure
+  RSVP.resolve(this.currentBuild).catch(function() { }).then(function() {
+    if (self._quitting) return
+    var buildPromise = new RSVP.Promise(function(resolve, reject) {
+      logger.debug(&#x27;debounce&#x27;)
+      self.trigger(&#x27;debounce&#x27;)
+      setTimeout(resolve, self.options.debounce)
+    }).then(function() {
+      // Only set _rebuildScheduled to false *after* the setTimeout so that
+      // change events during the setTimeout don&#x27;t trigger a second rebuild
+      self._rebuildScheduled = false
+      return self._build()
+    })
+    self.currentBuild = buildPromise
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Watcher.prototype._error" id="apidoc.element.broccoli.Watcher.prototype._error">
+        function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>_error
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_error = function (err) {
+  var self = this
+
+  logger.debug(&#x27;error&#x27;, err)
+  if (this._quitting) return
+  this._quit().catch(function() { }).then(function() {
+    self._lifetimeDeferred.reject(err)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Watcher.prototype._quit" id="apidoc.element.broccoli.Watcher.prototype._quit">
+        function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>_quit
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_quit = function (err) {
+  var self = this
+
+  this._quitting = true
+  logger.debug(&#x27;quitStart&#x27;)
+
+  return RSVP.resolve().then(function() {
+    return self.watcherAdapter.quit()
+  }).finally(function() {
+    // Wait for current build, and ignore build failure
+    return RSVP.resolve(self.currentBuild).catch(function() { })
+  }).finally(function() {
+    logger.debug(&#x27;quitEnd&#x27;)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Watcher.prototype.off" id="apidoc.element.broccoli.Watcher.prototype.off">
+        function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>off
+        <span class="apidocSignatureSpan">(eventName, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function off(eventName, callback) {
+  var allCallbacks = callbacksFor(this),
+      callbacks = undefined,
+      index = undefined;
+
+  if (!callback) {
+    allCallbacks[eventName] = [];
+    return;
+  }
+
+  callbacks = allCallbacks[eventName];
+
+  index = indexOf(callbacks, callback);
+
+  if (index !== -1) {
+    callbacks.splice(index, 1);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Watcher.prototype.on" id="apidoc.element.broccoli.Watcher.prototype.on">
+        function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>on
+        <span class="apidocSignatureSpan">(eventName, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function on(eventName, callback) {
+  if (typeof callback !== &#x27;function&#x27;) {
+    throw new TypeError(&#x27;Callback must be a function&#x27;);
+  }
+
+  var allCallbacks = callbacksFor(this),
+      callbacks = undefined;
+
+  callbacks = allCallbacks[eventName];
+
+  if (!callbacks) {
+    callbacks = allCallbacks[eventName] = [];
+  }
+
+  if (indexOf(callbacks, callback) === -1) {
+    callbacks.push(callback);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Watcher.prototype.quit" id="apidoc.element.broccoli.Watcher.prototype.quit">
+        function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>quit
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">quit = function () {
+  var self = this
+
+  if (this._quitting) {
+    logger.debug(&#x27;quit&#x27;, &#x27;ignored: already quitting&#x27;)
+    return
+  }
+  this._quit().then(function() {
+    self._lifetimeDeferred.resolve()
+  }, function(err) {
+    self._lifetimeDeferred.reject(err)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Watcher.prototype.start" id="apidoc.element.broccoli.Watcher.prototype.start">
+        function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>start
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function () {
+  var self = this
+
+  if (this._lifetimeDeferred != null) throw new Error(&#x27;Watcher.prototype.start() must not be called more than once&#x27;)
+  this._lifetimeDeferred = RSVP.defer()
+
+  this.watcherAdapter.on(&#x27;change&#x27;, this._change.bind(this))
+  this.watcherAdapter.on(&#x27;error&#x27;, this._error.bind(this))
+  RSVP.resolve().then(function() {
+    return self.watcherAdapter.watch(self.builder.watchedPaths)
+  }).then(function() {
+    logger.debug(&#x27;ready&#x27;)
+    self._ready = true
+    self.currentBuild = self._build()
+  }).catch(function(err) {
+    self._error(err)
+  })
+
+  return this._lifetimeDeferred.promise
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.Watcher.prototype.trigger" id="apidoc.element.broccoli.Watcher.prototype.trigger">
+        function <span class="apidocSignatureSpan">broccoli.Watcher.prototype.</span>trigger
+        <span class="apidocSignatureSpan">(eventName, options, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function trigger(eventName, options, label) {
+  var allCallbacks = callbacksFor(this),
+      callbacks = undefined,
+      callback = undefined;
+
+  if (callbacks = allCallbacks[eventName]) {
+    // Don&#x27;t cache the callbacks.length since it may grow
+    for (var i = 0; i &#x3c; callbacks.length; i++) {
+      callback = callbacks[i];
+
+      callback(options, label);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.WatcherAdapter" id="apidoc.module.broccoli.WatcherAdapter">module broccoli.WatcherAdapter</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.WatcherAdapter.WatcherAdapter" id="apidoc.element.broccoli.WatcherAdapter.WatcherAdapter">
+        function <span class="apidocSignatureSpan">broccoli.</span>WatcherAdapter
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function WatcherAdapter(options) {
+  this.options = options || {}
+  this.options.filter = this.options.filter || defaultFilterFunction
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.WatcherAdapter.prototype" id="apidoc.module.broccoli.WatcherAdapter.prototype">module broccoli.WatcherAdapter.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.WatcherAdapter.prototype.off" id="apidoc.element.broccoli.WatcherAdapter.prototype.off">
+        function <span class="apidocSignatureSpan">broccoli.WatcherAdapter.prototype.</span>off
+        <span class="apidocSignatureSpan">(eventName, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function off(eventName, callback) {
+  var allCallbacks = callbacksFor(this),
+      callbacks = undefined,
+      index = undefined;
+
+  if (!callback) {
+    allCallbacks[eventName] = [];
+    return;
+  }
+
+  callbacks = allCallbacks[eventName];
+
+  index = indexOf(callbacks, callback);
+
+  if (index !== -1) {
+    callbacks.splice(index, 1);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.WatcherAdapter.prototype.on" id="apidoc.element.broccoli.WatcherAdapter.prototype.on">
+        function <span class="apidocSignatureSpan">broccoli.WatcherAdapter.prototype.</span>on
+        <span class="apidocSignatureSpan">(eventName, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function on(eventName, callback) {
+  if (typeof callback !== &#x27;function&#x27;) {
+    throw new TypeError(&#x27;Callback must be a function&#x27;);
+  }
+
+  var allCallbacks = callbacksFor(this),
+      callbacks = undefined;
+
+  callbacks = allCallbacks[eventName];
+
+  if (!callbacks) {
+    callbacks = allCallbacks[eventName] = [];
+  }
+
+  if (indexOf(callbacks, callback) === -1) {
+    callbacks.push(callback);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.WatcherAdapter.prototype.quit" id="apidoc.element.broccoli.WatcherAdapter.prototype.quit">
+        function <span class="apidocSignatureSpan">broccoli.WatcherAdapter.prototype.</span>quit
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">quit = function () {
+  for (var i = 0; i &#x3c; this.watchers.length; i++) {
+    this.watchers[i].close()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.WatcherAdapter.prototype.trigger" id="apidoc.element.broccoli.WatcherAdapter.prototype.trigger">
+        function <span class="apidocSignatureSpan">broccoli.WatcherAdapter.prototype.</span>trigger
+        <span class="apidocSignatureSpan">(eventName, options, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function trigger(eventName, options, label) {
+  var allCallbacks = callbacksFor(this),
+      callbacks = undefined,
+      callback = undefined;
+
+  if (callbacks = allCallbacks[eventName]) {
+    // Don&#x27;t cache the callbacks.length since it may grow
+    for (var i = 0; i &#x3c; callbacks.length; i++) {
+      callback = callbacks[i];
+
+      callback(options, label);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.WatcherAdapter.prototype.watch" id="apidoc.element.broccoli.WatcherAdapter.prototype.watch">
+        function <span class="apidocSignatureSpan">broccoli.WatcherAdapter.prototype.</span>watch
+        <span class="apidocSignatureSpan">(watchedPaths)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">watch = function (watchedPaths) {
+  var self = this
+
+  this.watchers = []
+  this.readyPromises = []
+  watchedPaths.forEach(function(watchedPath) {
+    var watcher = new sane(watchedPath, self.options)
+    function bindFileEvent(event) {
+      watcher.on(event, function(filepath, root, stat) {
+        logger.debug(event, root + &#x27;/&#x27; + filepath)
+        self.trigger(&#x27;change&#x27;)
+      })
+    }
+    bindFileEvent(&#x27;change&#x27;)
+    bindFileEvent(&#x27;add&#x27;)
+    bindFileEvent(&#x27;delete&#x27;)
+    watcher.on(&#x27;error&#x27;, function(err) {
+      logger.debug(&#x27;error&#x27;, err)
+      self.trigger(&#x27;error&#x27;, err)
+    })
+    var readyPromise = new RSVP.Promise(function(resolve, reject) {
+      watcher.on(&#x27;ready&#x27;, function() {
+        logger.debug(&#x27;ready&#x27;, watchedPath)
+        resolve()
+      })
+    })
+    self.watchers.push(watcher)
+    self.readyPromises.push(readyPromise)
+  })
+  return RSVP.Promise.all(this.readyPromises)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.broccoli.server" id="apidoc.module.broccoli.server">module broccoli.server</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.broccoli.server.serve" id="apidoc.element.broccoli.server.serve">
+        function <span class="apidocSignatureSpan">broccoli.server.</span>serve
+        <span class="apidocSignatureSpan">(watcher, host, port)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function serve(watcher, host, port) {
+  if (watcher.constructor.name !== &#x27;Watcher&#x27;) throw new Error(&#x27;Expected Watcher instance&#x27;)
+  if (typeof host !== &#x27;string&#x27;) throw new Error(&#x27;Expected host to bind to (e.g. &#x22;localhost&#x22;)&#x27;)
+  if (typeof port !== &#x27;number&#x27;) throw new Error(&#x27;Expected port to bind to (e.g. 4200)&#x27;)
+
+  var server = {}
+
+  console.log(&#x27;Serving on http://&#x27; + host + &#x27;:&#x27; + port + &#x27;\n&#x27;)
+
+  server.watcher = watcher
+  server.builder = server.watcher.builder
+
+  server.app = connect().use(middleware(server.watcher))
+
+  server.http = http.createServer(server.app)
+
+  // We register these so the &#x27;exit&#x27; handler removing temp dirs is called
+  function cleanupAndExit() {
+    return server.watcher.quit()
+  }
+
+  process.on(&#x27;SIGINT&#x27;, cleanupAndExit)
+  process.on(&#x27;SIGTERM&#x27;, cleanupAndExit)
+
+  server.watcher.on(&#x27;buildSuccess&#x27;, function() {
+    printSlowNodes(server.builder.outputNodeWrapper)
+    console.log(&#x27;Built - &#x27; + Math.round(server.builder.outputNodeWrapper.buildState.totalTime) + &#x27; ms @ &#x27; + new Date().toString())
+  })
+
+  server.watcher.on(&#x27;buildFailure&#x27;, function(err) {
+    console.log(&#x27;Built with error:&#x27;)
+    console.log(err.message)
+    if (!err.broccoliPayload || !err.broccoliPayload.location.file) {
+      console.log(&#x27;&#x27;)
+      console.log(err.stack)
+    }
+    console.log(&#x27;&#x27;)
+  })
+
+  server.watcher.start()
+    .catch(function(err) {
+      console.log(err &#x26;&#x26; err.stack || err)
+    })
+    .finally(function() {
+      server.builder.cleanup()
+      server.http.close()
+    })
+    .catch(function(err) {
+      console.log(&#x27;Cleanup error:&#x27;)
+      console.log(err &#x26;&#x26; err.stack || err)
+    })
+    .finally(function() {
+      process.exit(1)
+    })
+
+  server.http.listen(parseInt(port, 10), host)
+  return server
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
