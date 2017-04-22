@@ -898,7 +898,17 @@
     throw e
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    program.outputHelp()
+    process.exit(1)
+  }
+}
+
+function getBuilder () {
+  var node = broccoli.loadBrocfile()
+  return new broccoli.<span class="apidocCodeKeywordSpan">Builder</span>(node)
+}
+...</pre></li>
     </ul>
 
 
@@ -1334,7 +1344,18 @@
 
   return node
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if(!actionPerformed) {
+    program.outputHelp()
+    process.exit(1)
+  }
+}
+
+function getBuilder () {
+  var node = broccoli.<span class="apidocCodeKeywordSpan">loadBrocfile</span>()
+  return new broccoli.Builder(node)
+}
+...</pre></li>
     </ul>
 
 
@@ -1407,7 +1428,17 @@
     throw e
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    program.outputHelp()
+    process.exit(1)
+  }
+}
+
+function getBuilder () {
+  var node = broccoli.loadBrocfile()
+  return new broccoli.<span class="apidocCodeKeywordSpan">Builder</span>(node)
+}
+...</pre></li>
     </ul>
 
 
@@ -2024,7 +2055,23 @@
   this.buildState.selfTime = 0
   this.buildState.totalTime = 0
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    .action(function(outputDir) {
+actionPerformed = true
+if (fs.existsSync(outputDir)) {
+  console.error(outputDir + '/ already exists; we cannot build into an existing directory')
+  process.exit(1)
+}
+var builder = getBuilder()
+builder.<span class="apidocCodeKeywordSpan">build</span>()
+  .then(function() {
+    copyDereferenceSync(builder.outputPath, outputDir)
+  })
+  .finally(function () {
+    return builder.cleanup()
+  })
+  .then(function () {
+...</pre></li>
     </ul>
 
 
@@ -2092,7 +2139,24 @@
     (this.nodeInfo.watched ? '' : ' (unwatched)')
   return '[NodeWrapper:' + this.id + ' ' + hint + ']'
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var path = require('path')
+var fs = require('fs')
+
+var handlebars = require('handlebars')
+var url = require('url')
+var mime = require('mime')
+
+var errorTemplate = handlebars.compile(fs.readFileSync(path.resolve(__dirname, 'templates/error.html')).<span class="apidocCodeKeywordSpan
+">toString</span>())
+var dirTemplate = handlebars.compile(fs.readFileSync(path.resolve(__dirname, 'templates/dir.html')).toString())
+
+// You must call watcher.start() before you call `getMiddleware`
+//
+// This middleware is for development use only. It hasn't been reviewed
+// carefully enough to run on a production server.
+//
+...</pre></li>
     </ul>
 
 
@@ -2151,7 +2215,23 @@
       }
     })
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    .action(function(outputDir) {
+actionPerformed = true
+if (fs.existsSync(outputDir)) {
+  console.error(outputDir + '/ already exists; we cannot build into an existing directory')
+  process.exit(1)
+}
+var builder = getBuilder()
+builder.<span class="apidocCodeKeywordSpan">build</span>()
+  .then(function() {
+    copyDereferenceSync(builder.outputPath, outputDir)
+  })
+  .finally(function () {
+    return builder.cleanup()
+  })
+  .then(function () {
+...</pre></li>
     </ul>
 
 
@@ -2232,7 +2312,24 @@
   }
   return '[NodeWrapper:' + this.id + ' ' + hint + ']'
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var path = require('path')
+var fs = require('fs')
+
+var handlebars = require('handlebars')
+var url = require('url')
+var mime = require('mime')
+
+var errorTemplate = handlebars.compile(fs.readFileSync(path.resolve(__dirname, 'templates/error.html')).<span class="apidocCodeKeywordSpan
+">toString</span>())
+var dirTemplate = handlebars.compile(fs.readFileSync(path.resolve(__dirname, 'templates/dir.html')).toString())
+
+// You must call watcher.start() before you call `getMiddleware`
+//
+// This middleware is for development use only. It hasn't been reviewed
+// carefully enough to run on a production server.
+//
+...</pre></li>
     </ul>
 
 
@@ -2280,7 +2377,23 @@
   })
   return promise
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    .action(function(outputDir) {
+actionPerformed = true
+if (fs.existsSync(outputDir)) {
+  console.error(outputDir + '/ already exists; we cannot build into an existing directory')
+  process.exit(1)
+}
+var builder = getBuilder()
+builder.<span class="apidocCodeKeywordSpan">build</span>()
+  .then(function() {
+    copyDereferenceSync(builder.outputPath, outputDir)
+  })
+  .finally(function () {
+    return builder.cleanup()
+  })
+  .then(function () {
+...</pre></li>
     </ul>
 
 
@@ -2321,7 +2434,23 @@
     <li>description and source-code<pre class="apidocCodePre">cleanup = function () {
   this.builderTmpDirCleanup()
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+var builder = getBuilder()
+builder.build()
+  .then(function() {
+    copyDereferenceSync(builder.outputPath, outputDir)
+  })
+  .finally(function () {
+    return builder.<span class="apidocCodeKeywordSpan">cleanup</span>()
+  })
+  .then(function () {
+    process.exit(0)
+  })
+  .catch(function (err) {
+    // Should show file and line/col if present
+    if (err.file) {
+...</pre></li>
     </ul>
 
 
@@ -2879,7 +3008,23 @@
 
   return this._lifetimeDeferred.promise
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var handlebars = require('handlebars')
+var url = require('url')
+var mime = require('mime')
+
+var errorTemplate = handlebars.compile(fs.readFileSync(path.resolve(__dirname, 'templates/error.html')).toString())
+var dirTemplate = handlebars.compile(fs.readFileSync(path.resolve(__dirname, 'templates/dir.html')).toString())
+
+// You must call watcher.<span class="apidocCodeKeywordSpan">start</span>() before you call `getMiddleware`
+//
+// This middleware is for development use only. It hasn't been reviewed
+// carefully enough to run on a production server.
+//
+// Supported options:
+//   autoIndex (default: true) - set to false to disable directory listings
+//   liveReloadPath - LiveReload script URL for error pages
+...</pre></li>
     </ul>
 
 
@@ -3152,7 +3297,24 @@
   server.http.listen(parseInt(port, 10), host)
   return server
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+program.command('serve')
+  .description('start a broccoli server')
+  .option('--port &lt;port&gt;', 'the port to bind to [4200]', 4200)
+  .option('--host &lt;host&gt;', 'the host to bind to [localhost]', 'localhost')
+  .action(function(options) {
+    actionPerformed = true
+    broccoli.server.<span class="apidocCodeKeywordSpan">serve</span>(new Watcher(getBuilder()), options.host, parseInt(options.port
+, 10))
+  })
+
+program.command('build &lt;target&gt;')
+  .description('output files to target directory')
+  .action(function(outputDir) {
+    actionPerformed = true
+    if (fs.existsSync(outputDir)) {
+...</pre></li>
     </ul>
 
 
